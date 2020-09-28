@@ -26,14 +26,17 @@ export default function CardComponent({ deal }: Deal) {
   return (
     <CardWrapper>
       <CardContainer>
-        <div>
+        <CardImageContainer>
           <img src={deal.image} alt='deal' />
-        </div>
-        <div>
-          <h4>{deal.title}</h4>
-          <p>{deal.description}</p>
-          <p>p.p. vanaf <span><strong>{deal.price / 100},-</strong></span></p>
-        </div>
+          <p>Beschikbaar voor {deal.hotels.length} hotels</p>
+        </CardImageContainer>
+        <CardDescriptionContainer>
+          <div className='text'>
+            <h4>{deal.title}</h4>
+            <p>{deal.description}</p>
+            <p id='price-text'>p.p. vanaf <span><strong>{deal.price / 100},-</strong></span></p>
+          </div>
+        </CardDescriptionContainer>
       </CardContainer>
     </CardWrapper>
   )
@@ -53,5 +56,44 @@ const CardContainer = styled.div`
 
   &:hover {
     opacity: 0.6;
+  }
+`
+
+const CardImageContainer = styled.div`
+  position: relative;
+  img {
+    width: 280px;
+    border-radius: 3px 3px 0 0;
+  }
+
+  p {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 10px;
+    color: white;
+  }
+`
+const CardDescriptionContainer = styled.div`
+  height: 100%;
+
+  .text {
+    margin: 10px;
+  }
+
+  h4 {
+    margin: 0;
+  }
+
+  p {
+    font-size: 12px;
+  }
+
+  #price-text {
+    margin-left: 160px;
+  }
+
+  span {
+    font-size: 20px;
   }
 `
