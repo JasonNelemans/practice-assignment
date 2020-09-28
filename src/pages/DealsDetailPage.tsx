@@ -11,6 +11,11 @@ interface Props {
 
 export default function DealsDetailPage({ deals, hotels }: Props) {
   const { id } = useParams<any>();
+  const indexNum = id - 1;
+
+  const dealDetails = deals.data?.find((deal: any, i: number) => {
+    if (indexNum === i) return deal
+  })
 
   console.log('ID: ', id);
   console.log('Hotels in Detail: ', hotels)
@@ -18,7 +23,7 @@ export default function DealsDetailPage({ deals, hotels }: Props) {
 
   return (
     <DetailWrapper>
-      <DetailsBanner />
+      <DetailsBanner src={dealDetails?.image} />
     </DetailWrapper>
   )
 }
