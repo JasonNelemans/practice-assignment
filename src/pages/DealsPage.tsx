@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import styled from 'styled-components';
 
 // type AvailableHotel = {
 //   id: string;
@@ -37,17 +38,18 @@ import React from 'react'
 
 interface Props {
   deals: any;
-  hotels: any;
 }
 
-export default function DealsPage({ deals, hotels }: Props) {
-
+export default function DealsPage({ deals }: Props) {
   console.log('deals in dealsPage: ', deals);
-  console.log('hotels in dealspage: ', hotels);
 
   return (
-    <div>
-      This is the deals page
-    </div>
+    <DealsWrapper>
+      <h1>Top zomer deals</h1>
+    </DealsWrapper>
   )
 }
+
+const DealsWrapper = styled.div`
+  margin: 20px;
+`

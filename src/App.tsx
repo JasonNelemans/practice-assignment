@@ -33,14 +33,11 @@ function App() {
     fetchDeals();
   }, [])
 
-  console.log('deals: ', deals);
-  console.log('hotels: ', hotels);
-
   return (
     <div className="App">
       <GlobalStyling />
       <Switch>
-        <Route exact path='/' render={props => <DealsPage {...props} deals={deals} hotels={hotels} />} />
+        <Route exact path='/' render={props => <DealsPage {...props} deals={deals} />} />
       </Switch>
     </div>
   );
