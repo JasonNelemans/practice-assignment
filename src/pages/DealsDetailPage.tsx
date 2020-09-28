@@ -42,7 +42,7 @@ export default function DealsDetailPage({ deals, hotels }: Props) {
           <Button active={active} text='Beschrijving' click={clickHandler} />
           <Button active={!active} text={`Beschikbare hotels (${dealDetails?.hotels.length})`} click={clickHandler} />
         </Options>
-        {active ? <DetailsComponent dealDetails={dealDetails} /> : <HotelsComponent />}
+        {active ? <DetailsComponent dealDetails={dealDetails} /> : <HotelsComponent allHotels={hotels.data} availableHotels={dealDetails?.hotels} />}
       </div>
     </DetailWrapper>
   )
