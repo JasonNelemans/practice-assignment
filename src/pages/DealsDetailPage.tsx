@@ -6,6 +6,7 @@ import DetailsBanner from '../components/DetailsBanner';
 import DetailsComponent from '../components/DetailsComponent';
 import Button from '../components/Button';
 import HotelsComponent from '../components/HotelsComponent';
+import OrderButton from '../components/OrderButton';
 
 interface Props {
   deals: any;
@@ -43,6 +44,7 @@ export default function DealsDetailPage({ deals, hotels }: Props) {
           <Button active={!active} text={`Beschikbare hotels (${dealDetails?.hotels.length})`} click={clickHandler} />
         </Options>
         {active ? <DetailsComponent dealDetails={dealDetails} /> : <HotelsComponent allHotels={hotels.data} availableHotels={dealDetails?.hotels} />}
+        <OrderButton />
       </div>
     </DetailWrapper>
   )
