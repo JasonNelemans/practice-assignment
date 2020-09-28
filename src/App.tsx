@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
 function App() {
+  const [hotels, setHotels] = useState({});
+  const [deals, setDeals] = useState({});
 
   async function fetchHotels() {
     const proxyUrl = 'https://cors-anywhere.herokuapp.com/'
@@ -8,13 +10,27 @@ function App() {
     const res = await fetch(proxyUrl + targetUrl);
     res
       .json()
-      .then(({ data }) => console.log('response hotels: ', data))
+      .then(({ data }) => setHotels(data))
       .catch(err => console.log('error hotels: ', err))
+  }
+
+  async function fetchDeals() {
+    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+    const targetUrl = 'https://valkdigital-mock.netlify.com/api/v1/deals';
+    const res = await fetch(proxyUrl + targetUrl);
+    res
+      .json()
+      .then(({ data }) => setDeals(data))
+      .catch(err => console.log('error hotels: ', err));
   }
 
   useEffect(() => {
     fetchHotels();
+    fetchDeals();
   }, [])
+
+  console.log('deals: ', deals);
+  console.log('hotels: ', hotels);
 
   return (
     <div className="App">
