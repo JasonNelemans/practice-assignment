@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import HotelCard from './HotelCard';
+
 type availableHotels = {
   id: string;
   price: number;
@@ -29,7 +31,9 @@ export default function HotelsComponent({ allHotels, availableHotels }: Props) {
   console.log('availableHotels: ', availableHotels);
   return (
     <Container>
-      This is the HotelsComponent
+      {hotelNames?.map(hotel =>
+        <HotelCard name={hotel.name} image={hotel.photo} price={99} key={hotel.name} />
+      )}
     </Container>
   )
 }
