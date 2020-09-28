@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import DetailsBanner from '../components/DetailsBanner';
 import DetailsComponent from '../components/DetailsComponent';
 import Button from '../components/Button';
+import HotelsComponent from '../components/HotelsComponent';
 
 interface Props {
   deals: any;
@@ -41,7 +42,7 @@ export default function DealsDetailPage({ deals, hotels }: Props) {
           <Button active={active} text='Beschrijving' click={clickHandler} />
           <Button active={!active} text={`Beschikbare hotels (${dealDetails?.hotels.length})`} click={clickHandler} />
         </Options>
-        <DetailsComponent dealDetails={dealDetails} />
+        {active ? <DetailsComponent dealDetails={dealDetails} /> : <HotelsComponent />}
       </div>
     </DetailWrapper>
   )
