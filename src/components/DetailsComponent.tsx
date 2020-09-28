@@ -1,6 +1,7 @@
 import React from 'react';
-import AboutComponent from './AboutComponent';
 
+import AboutComponent from './AboutComponent';
+import DisclaimerComponent from './DisclaimerComponent';
 import FeaturesComponent from './FeaturesComponent';
 
 interface Props {
@@ -14,6 +15,7 @@ export default function DetailsComponent({ dealDetails }: Props) {
     <div>
       <FeaturesComponent features={dealDetails?.features} />
       <AboutComponent content={dealDetails?.content} />
+      <DisclaimerComponent disclaimer={dealDetails?.disclaimer} />
     </div>
   )
 }
