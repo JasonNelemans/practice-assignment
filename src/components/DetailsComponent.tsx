@@ -1,4 +1,5 @@
 import React from 'react';
+import AboutComponent from './AboutComponent';
 
 import FeaturesComponent from './FeaturesComponent';
 
@@ -12,6 +13,7 @@ export default function DetailsComponent({ dealDetails }: Props) {
   return (
     <div>
       <FeaturesComponent features={dealDetails?.features} />
+      <AboutComponent content={dealDetails?.content} />
     </div>
   )
 }
