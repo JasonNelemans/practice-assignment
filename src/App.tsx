@@ -4,6 +4,8 @@ import { Switch, Route } from 'react-router-dom';
 import GlobalStyling from './GlobalStyling';
 import DealsDetailPage from './pages/DealsDetailPage';
 import DealsPage from './pages/DealsPage';
+import hotelsData from './data/hotels';
+import dealsData from './data/deals';
 
 function App() {
   const [hotels, setHotels] = useState({});
@@ -30,8 +32,11 @@ function App() {
   }
 
   useEffect(() => {
-    fetchHotels();
-    fetchDeals();
+    // fetchHotels();
+    // fetchDeals();
+    setDeals(dealsData);
+    setHotels(hotelsData);
+
   }, [])
 
   return (
