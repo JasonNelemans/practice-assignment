@@ -1,9 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default function OrderButton() {
+interface Prop {
+  hotelOrder: any;
+}
+
+export default function OrderButton({ hotelOrder }: Prop) {
+  const message = () => {
+    if (hotelOrder === '') {
+      alert('Kies eerst een hotel aub.')
+    } else {
+      alert(`U heeft gekozen voor: ${hotelOrder}`)
+    }
+  }
+
   return (
-    <Container>
+    <Container onClick={message}>
       <div className='text'>
         <p>Nu boeken</p>
       </div>
