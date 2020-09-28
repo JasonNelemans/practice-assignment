@@ -5,11 +5,12 @@ interface Props {
   name: string;
   image: string;
   price: number;
+  click: any;
 }
 
-export default function HotelCard({ name, image, price }: Props) {
+export default function HotelCard({ name, image, price, click }: Props) {
   return (
-    <Container>
+    <Container onClick={() => click(name)}>
       <img src={image} alt='' width='75px' />
       <Text>
         <p id='header'>{name}</p>

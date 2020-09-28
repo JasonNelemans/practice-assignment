@@ -32,10 +32,10 @@ function App() {
   }
 
   useEffect(() => {
-    // fetchHotels();
-    // fetchDeals();
-    setDeals(dealsData);
-    setHotels(hotelsData);
+    fetchHotels();
+    fetchDeals();
+    // setDeals(dealsData);
+    // setHotels(hotelsData);
 
   }, [])
 

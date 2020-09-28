@@ -15,6 +15,7 @@ interface Props {
 
 export default function DealsDetailPage({ deals, hotels }: Props) {
   const [active, setActive] = useState(true);
+  const [selected, setSelected] = useState('');
   const { id } = useParams<any>();
   const indexNum = id - 1;
 
@@ -26,9 +27,11 @@ export default function DealsDetailPage({ deals, hotels }: Props) {
     setActive(!active);
   }
 
-  console.log('ID: ', id);
-  console.log('Hotels in Detail: ', hotels)
-  console.log('Deals in Detail: ', deals)
+  const selectedHotel = (hotel: any) => {
+    setSelected(hotel);
+  }
+
+  console.log('selected: ', selected)
 
   return (
     <DetailWrapper>
@@ -43,7 +46,7 @@ export default function DealsDetailPage({ deals, hotels }: Props) {
           <Button active={active} text='Beschrijving' click={clickHandler} />
           <Button active={!active} text={`Beschikbare hotels (${dealDetails?.hotels.length})`} click={clickHandler} />
         </Options>
-        {active ? <DetailsComponent dealDetails={dealDetails} /> : <HotelsComponent allHotels={hotels.data} availableHotels={dealDetails?.hotels} />}
+        {active ? <DetailsComponent dealDetails={dealDetails} /> : <HotelsComponent allHotels={hotels.data} availableHotels={dealDetails?.hotels} selectHotel={selectedHotel} />}
         <OrderButton />
       </div>
     </DetailWrapper>

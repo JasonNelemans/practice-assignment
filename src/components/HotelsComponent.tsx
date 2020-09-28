@@ -21,10 +21,15 @@ type allHotels = {
 interface Props {
   availableHotels: availableHotels[];
   allHotels: allHotels[];
+  selectHotel: any;
 }
 
-export default function HotelsComponent({ allHotels, availableHotels }: Props) {
+export default function HotelsComponent({ allHotels, availableHotels, selectHotel }: Props) {
   const hotelNames = allHotels?.filter((hotel) => availableHotels.some((available) => hotel.code === available.id));
+
+  const clickHandler = (hotel: any) => {
+    selectHotel(hotel);
+  }
 
   console.log('hotelNames: ', hotelNames);
   console.log('allHotels: ', allHotels);
@@ -32,7 +37,7 @@ export default function HotelsComponent({ allHotels, availableHotels }: Props) {
   return (
     <Container>
       {hotelNames?.map(hotel =>
-        <HotelCard name={hotel.name} image={hotel.photo} price={99} key={hotel.name} />
+        <HotelCard name={hotel.name} image={hotel.photo} price={99} key={hotel.name} click={clickHandler} />
       )}
     </Container>
   )
