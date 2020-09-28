@@ -6,13 +6,24 @@ interface Props {
 }
 
 export default function DetailsBanner({ src }: Props) {
-  console.log('src: ', src);
   return (
-    <BannerContainer >
+    <BannerContainer src={src} >
       Hello
     </BannerContainer>
   )
 }
 
-const BannerContainer = styled.div`
+type BannerProp = {
+  src: string;
+}
+
+const BannerContainer = styled.div<BannerProp>`
+  background-image: ${props => (props.src ? `url(${props.src})` : "")};
+  background-attachment: fixed;
+  background-position: 50% 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  scroll-behavior: smooth;
+
+  height: 300px;
 `
