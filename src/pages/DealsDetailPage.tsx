@@ -36,4 +36,27 @@ export default function DealsDetailPage({ deals, hotels }: Props) {
 }
 
 const DetailWrapper = styled.div`
+
+  .description-container {
+    margin: 20px;
+    width: 400px;
+
+  }  
+
+  .header-text {
+
+    h1 {
+      margin-bottom: 15px;
+    }
+
+    #desc {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    #price {
+      font-size: 20px;
+      margin-top: 15px;
+    }
+  }
 `
