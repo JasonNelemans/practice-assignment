@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 
 import DetailsBanner from '../components/DetailsBanner';
+import DetailsComponent from '../components/DetailsComponent';
 
 interface Props {
   deals: any;
@@ -30,6 +31,7 @@ export default function DealsDetailPage({ deals, hotels }: Props) {
           <p>{dealDetails?.description}</p>
           <p>Vanaf {dealDetails?.price / 100},- per persoon</p>
         </div>
+        <DetailsComponent dealDetails={dealDetails} />
       </div>
     </DetailWrapper>
   )
