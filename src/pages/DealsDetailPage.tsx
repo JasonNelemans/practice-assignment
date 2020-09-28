@@ -31,8 +31,6 @@ export default function DealsDetailPage({ deals, hotels }: Props) {
     setSelected(hotel);
   }
 
-  console.log('selected: ', selected)
-
   return (
     <DetailWrapper>
       <DetailsBanner src={dealDetails?.image} />

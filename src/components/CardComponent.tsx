@@ -24,7 +24,6 @@ type Props = {
 }
 
 export default function CardComponent({ deal, id }: Props) {
-  console.log('deal in Card: ', deal);
   return (
     <CardWrapper>
       <Link to={`deal/${id}`}>

@@ -9,8 +9,6 @@ interface Props {
 }
 
 export default function DetailsComponent({ dealDetails }: Props) {
-  console.log('deal Details in DetailsComp: ', dealDetails);
-
   return (
     <div>
       <FeaturesComponent features={dealDetails?.features} />

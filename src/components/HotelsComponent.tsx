@@ -31,9 +31,6 @@ export default function HotelsComponent({ allHotels, availableHotels, selectHote
     selectHotel(hotel);
   }
 
-  console.log('hotelNames: ', hotelNames);
-  console.log('allHotels: ', allHotels);
-  console.log('availableHotels: ', availableHotels);
   return (
     <Container>
       {hotelNames?.map(hotel =>

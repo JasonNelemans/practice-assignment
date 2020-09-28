@@ -43,8 +43,6 @@ interface Props {
 }
 
 export default function DealsPage({ deals }: Props) {
-  console.log('deals in dealsPage: ', deals);
-
   return (
     <DealsWrapper>
       <h1>Top zomer deals</h1>
