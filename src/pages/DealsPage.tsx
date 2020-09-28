@@ -48,15 +48,29 @@ export default function DealsPage({ deals }: Props) {
   return (
     <DealsWrapper>
       <h1>Top zomer deals</h1>
-      {deals.data?.map((deal: any, i: number) => {
-        return (
-          <CardComponent deal={deal} key={i} />
-        )
-      })}
+      <DealsContainer>
+        {deals.data?.map((deal: any, i: number) => {
+          return (
+            <div className='card' key={i}>
+              <CardComponent deal={deal} />
+            </div>
+          )
+        })}
+      </DealsContainer>
     </DealsWrapper>
   )
 }
 
 const DealsWrapper = styled.div`
   margin: 20px;
+`
+const DealsContainer = styled.div`
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding-bottom: 50px;
+
+  .card {
+    flex: 0 0 auto;
+  }
 `

@@ -48,7 +48,7 @@ const CardWrapper = styled.div`
   border-radius: 3px;
   box-shadow: 0px 7px 45px 0px rgba(0,0,0,0.1);
 
-  margin-rigt: 20px;
+  margin-right: 20px;
 `
 
 const CardContainer = styled.div`
