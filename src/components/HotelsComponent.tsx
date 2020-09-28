@@ -22,6 +22,9 @@ interface Props {
 }
 
 export default function HotelsComponent({ allHotels, availableHotels }: Props) {
+  const hotelNames = allHotels?.filter((hotel) => availableHotels.some((available) => hotel.code === available.id));
+
+  console.log('hotelNames: ', hotelNames);
   console.log('allHotels: ', allHotels);
   console.log('availableHotels: ', availableHotels);
   return (
