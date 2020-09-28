@@ -14,7 +14,7 @@ function App() {
     const res = await fetch(proxyUrl + targetUrl);
     res
       .json()
-      .then(({ data }) => setHotels(data))
+      .then((res) => setHotels(res))
       .catch(err => console.log('error hotels: ', err))
   }
 
@@ -24,7 +24,7 @@ function App() {
     const res = await fetch(proxyUrl + targetUrl);
     res
       .json()
-      .then(({ data }) => setDeals(data))
+      .then((res) => setDeals(res))
       .catch(err => console.log('error hotels: ', err));
   }
 

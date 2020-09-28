@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import CardComponent from '../components/CardComponent';
+
 // type AvailableHotel = {
 //   id: string;
 //   price: number;
@@ -46,6 +48,11 @@ export default function DealsPage({ deals }: Props) {
   return (
     <DealsWrapper>
       <h1>Top zomer deals</h1>
+      {deals.data?.map((deal: any, i: number) => {
+        return (
+          <CardComponent deal={deal} key={i} />
+        )
+      })}
     </DealsWrapper>
   )
 }
