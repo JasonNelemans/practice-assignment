@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
+import GlobalStyling from './GlobalStyling';
+
 function App() {
   const [hotels, setHotels] = useState({});
   const [deals, setDeals] = useState({});
@@ -34,6 +36,7 @@ function App() {
 
   return (
     <div className="App">
+      <GlobalStyling />
     </div>
   );
 }
