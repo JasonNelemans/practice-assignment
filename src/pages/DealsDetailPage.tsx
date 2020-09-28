@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 
@@ -12,12 +12,17 @@ interface Props {
 }
 
 export default function DealsDetailPage({ deals, hotels }: Props) {
+  const [active, setActive] = useState(true);
   const { id } = useParams<any>();
   const indexNum = id - 1;
 
   const dealDetails = deals.data?.find((deal: any, i: number) => {
     if (indexNum === i) return deal
   })
+
+  const clickHandler = () => {
+    setActive(!active);
+  }
 
   console.log('ID: ', id);
   console.log('Hotels in Detail: ', hotels)
@@ -33,8 +38,8 @@ export default function DealsDetailPage({ deals, hotels }: Props) {
           <p>Vanaf {dealDetails?.price / 100},- per persoon</p>
         </div>
         <Options>
-          <Button text='Beschrijving' />
-          <Button text={`Beschikbare hotels (${dealDetails?.hotels.length})`} />
+          <Button active={active} text='Beschrijving' click={clickHandler} />
+          <Button active={!active} text={`Beschikbare hotels (${dealDetails?.hotels.length})`} click={clickHandler} />
         </Options>
         <DetailsComponent dealDetails={dealDetails} />
       </div>
