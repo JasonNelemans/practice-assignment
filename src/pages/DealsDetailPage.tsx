@@ -24,6 +24,13 @@ export default function DealsDetailPage({ deals, hotels }: Props) {
   return (
     <DetailWrapper>
       <DetailsBanner src={dealDetails?.image} />
+      <div className='description-container'>
+        <div className='header-text'>
+          <h1>{dealDetails?.title}</h1>
+          <p>{dealDetails?.description}</p>
+          <p>Vanaf {dealDetails?.price / 100},- per persoon</p>
+        </div>
+      </div>
     </DetailWrapper>
   )
 }
