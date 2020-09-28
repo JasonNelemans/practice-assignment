@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import { BsChevronLeft } from 'react-icons/bs';
 
 interface Props {
   src: string;
@@ -8,7 +10,11 @@ interface Props {
 export default function DetailsBanner({ src }: Props) {
   return (
     <BannerContainer src={src} >
-      Hello
+      <div className='return'>
+        <Link to='/'>
+          <BsChevronLeft color='#fff' />
+        </Link>
+      </div>
     </BannerContainer>
   )
 }
@@ -26,4 +32,8 @@ const BannerContainer = styled.div<BannerProp>`
   scroll-behavior: smooth;
 
   height: 300px;
+
+  .return {
+    padding: 20px;
+  }
 `
