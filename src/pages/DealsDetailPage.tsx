@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 
 import DetailsBanner from '../components/DetailsBanner';
 import DetailsComponent from '../components/DetailsComponent';
+import Button from '../components/Button';
 
 interface Props {
   deals: any;
@@ -31,6 +32,10 @@ export default function DealsDetailPage({ deals, hotels }: Props) {
           <p>{dealDetails?.description}</p>
           <p>Vanaf {dealDetails?.price / 100},- per persoon</p>
         </div>
+        <Options>
+          <Button text='Beschrijving' />
+          <Button text={`Beschikbare hotels (${dealDetails?.hotels.length})`} />
+        </Options>
         <DetailsComponent dealDetails={dealDetails} />
       </div>
     </DetailWrapper>
@@ -61,4 +66,10 @@ const DetailWrapper = styled.div`
       margin-top: 15px;
     }
   }
+`
+
+const Options = styled.div`
+  margin-top: 35px;
+  margin-bottom: 25px;
+  display: flex;
 `
