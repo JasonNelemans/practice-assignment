@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import GlobalStyling from './GlobalStyling';
+import DealsPage from './pages/DealsPage';
 
 function App() {
   const [hotels, setHotels] = useState({});
@@ -38,6 +39,9 @@ function App() {
   return (
     <div className="App">
       <GlobalStyling />
+      <Switch>
+        <Route exact path='/' render={props => <DealsPage {...props} deals={deals} hotels={hotels} />} />
+      </Switch>
     </div>
   );
 }
