@@ -53,6 +53,11 @@ const CardWrapper = styled.div`
   box-shadow: 0px 7px 45px 0px rgba(0,0,0,0.1);
 
   margin-right: 20px;
+
+  a {
+    color: inherit;
+    text-decoration: inherit;
+  }
 `
 
 const CardContainer = styled.div`

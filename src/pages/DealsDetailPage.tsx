@@ -1,5 +1,8 @@
 import React from 'react'
+import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
+
+import DetailsBanner from '../components/DetailsBanner';
 
 interface Props {
   deals: any;
@@ -14,8 +17,11 @@ export default function DealsDetailPage({ deals, hotels }: Props) {
   console.log('Deals in Detail: ', deals)
 
   return (
-    <div>
-      Simple DealsDetailPage
-    </div>
+    <DetailWrapper>
+      <DetailsBanner />
+    </DetailWrapper>
   )
 }
+
+const DetailWrapper = styled.div`
+`
