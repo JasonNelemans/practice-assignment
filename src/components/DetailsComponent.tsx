@@ -11,7 +11,7 @@ export default function DetailsComponent({ dealDetails }: Props) {
 
   return (
     <div>
-      <FeaturesComponent />
+      <FeaturesComponent features={dealDetails?.features} />
     </div>
   )
 }
