@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import GlobalStyling from './GlobalStyling';
+import DealsDetailPage from './pages/DealsDetailPage';
 import DealsPage from './pages/DealsPage';
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
       <GlobalStyling />
       <Switch>
         <Route exact path='/' render={props => <DealsPage {...props} deals={deals} />} />
+        <Route exact path='/deal/:id' render={props => <DealsDetailPage {...props} deals={deals} hotels={hotels} />} />
       </Switch>
     </div>
   );

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 type AvailableHotel = {
   id: string;
@@ -7,7 +8,7 @@ type AvailableHotel = {
   length: number;
 }
 
-type Deal = {
+type Props = {
   deal: {
     content: string;
     description: string;
@@ -18,26 +19,29 @@ type Deal = {
     price: number;
     title: string;
     __proto__: any;
-  }
+  },
+  id: number;
 }
 
-export default function CardComponent({ deal }: Deal) {
+export default function CardComponent({ deal, id }: Props) {
   console.log('deal in Card: ', deal);
   return (
     <CardWrapper>
-      <CardContainer>
-        <CardImageContainer>
-          <img src={deal.image} alt='deal' />
-          <p>Beschikbaar voor {deal.hotels.length} hotels</p>
-        </CardImageContainer>
-        <CardDescriptionContainer>
-          <div className='text'>
-            <h4>{deal.title}</h4>
-            <p>{deal.description}</p>
-            <p id='price-text'>p.p. vanaf <span><strong>{deal.price / 100},-</strong></span></p>
-          </div>
-        </CardDescriptionContainer>
-      </CardContainer>
+      <Link to={`deal/${id}`}>
+        <CardContainer>
+          <CardImageContainer>
+            <img src={deal.image} alt='deal' />
+            <p>Beschikbaar voor {deal.hotels.length} hotels</p>
+          </CardImageContainer>
+          <CardDescriptionContainer>
+            <div className='text'>
+              <h4>{deal.title}</h4>
+              <p>{deal.description}</p>
+              <p id='price-text'>p.p. vanaf <span><strong>{deal.price / 100},-</strong></span></p>
+            </div>
+          </CardDescriptionContainer>
+        </CardContainer>
+      </Link>
     </CardWrapper>
   )
 }

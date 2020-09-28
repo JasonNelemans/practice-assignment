@@ -52,7 +52,7 @@ export default function DealsPage({ deals }: Props) {
         {deals.data?.map((deal: any, i: number) => {
           return (
             <div className='card' key={i}>
-              <CardComponent deal={deal} />
+              <CardComponent deal={deal} id={i + 1} />
             </div>
           )
         })}
